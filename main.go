@@ -12,12 +12,12 @@ func OnVisit(n structures.GraphNode[int]) {
 }
 
 func main() {
-	n1 := structures.NewGraphNode[int](1, "A")
-	n2 := structures.NewGraphNode[int](2, "B")
-	n3 := structures.NewGraphNode[int](3, "C")
-	n4 := structures.NewGraphNode[int](4, "D")
-	n5 := structures.NewGraphNode[int](5, "E")
-	n6 := structures.NewGraphNode[int](6, "F")
+	n1 := structures.NewGraphNode(1, "A")
+	n2 := structures.NewGraphNode(2, "B")
+	n3 := structures.NewGraphNode(3, "C")
+	n4 := structures.NewGraphNode(4, "D")
+	n5 := structures.NewGraphNode(5, "E")
+	n6 := structures.NewGraphNode(6, "F")
 
 	n1.AddAdj(n2)
 	n1.AddAdj(n3)
@@ -28,6 +28,13 @@ func main() {
 	n3.AddAdj(n6)
 
 	n1.BFS(OnVisit)
+
+	fmt.Println(n1)
+	fmt.Println(n2)
+	fmt.Println(n3)
+	fmt.Println(n4)
+	fmt.Println(n5)
+	fmt.Println(n6)
 
 	svg, err := n1.ToDot()
 	if err != nil {
